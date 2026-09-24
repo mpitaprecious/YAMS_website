@@ -61,8 +61,54 @@
             Submit Request
         </button>
 
+        <input type="hidden" name="latitude" id="latitude">
+        <input type="hidden" name="longitude" id="longitude">
+
+        <button type="button" onclick="getLocation()">
+            📍 Share My Location
+        </button>
+
+        <p id="location-status"></p>
+
+
     </form>
 </section>
+
+
+<script>
+    function getLocation() {
+        const status = document.getElementById("location-status");
+
+        if (!navigator.geolocation) {
+            status.textContent = "GPS is not supported by your browser.";
+            return;
+        }
+
+        status.textContent = "Getting your location...";
+
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                document.getElementById("latitude").value =
+                    position.coords.latitude;
+
+                document.getElementById("longitude").value =
+                    position.coords.longitude;
+
+                status.textContent = "✓ Location captured successfully.";
+            },
+            function(error) {
+                status.textContent =
+                    "Unable to get location. Please allow GPS permission.";
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            }
+        );
+    }
+</script>
+
 
 <footer>
     <div>

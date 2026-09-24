@@ -17,7 +17,14 @@ CREATE TABLE IF NOT EXISTS applications (
 )
 ''')
 
+
+cursor.execute("""ALTER TABLE applications ADD COLUMN latitude REAL
+""")
+cursor.execute("""ALTER TABLE applications ADD COLUMN longitude REAL
+""")
+
 conn.commit()
 conn.close()
 
+print("GPS columns added successfully.")
 print("Database created successfully.")

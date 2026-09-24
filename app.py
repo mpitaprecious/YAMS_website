@@ -182,7 +182,6 @@ def restore(id):
 
     return redirect("/archived")
 
-
 @app.route('/apply', methods=['GET', 'POST'])
 def apply():
     if request.method == 'POST':
@@ -194,18 +193,31 @@ def apply():
         description = request.form['description']
         service_date = request.form['date']
 
+        # GPS coordinates
+        latitude = request.form.get('latitude')
+        longitude = request.form.get('longitude')
+
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
 
         cursor.execute('''
         INSERT INTO applications
         (fullname, phone, email, location,
-         service, description, service_date)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+         service, description, service_date,
+         latitude, longitude)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''',
-                       (fullname, phone, email,
-                        location, service,
-                        description, service_date))
+        (
+            fullname,
+            phone,
+            email,
+            location,
+            service,
+            description,
+            service_date,
+            latitude,
+            longitude
+        ))
 
         conn.commit()
         conn.close()
@@ -213,7 +225,6 @@ def apply():
         return "<h2>Application Submitted Successfully!</h2>"
 
     return render_template('apply.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)

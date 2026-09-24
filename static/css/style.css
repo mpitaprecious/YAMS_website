@@ -222,3 +222,124 @@ tr:nth-child(even) {
   width: 120px;
   margin-bottom: 20px;
 }
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 10px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 60vh;
+        padding: 50px 20px;
+    }
+
+    .hero-logo {
+        width: 75px;
+        margin-bottom: 12px;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .content {
+        width: 90%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
+
+
+/* Phones */
+@media (max-width: 480px) {
+
+    header {
+        padding: 12px 8px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 55vh;
+        padding: 40px 15px;
+    }
+
+    .hero-logo {
+        width: 60px;
+        margin-bottom: 10px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+
+    .button {
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+
+    .content {
+        width: 94%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .content h2 {
+        font-size: 1.6rem;
+    }
+
+    .service-card {
+        padding: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .whatsapp-btn {
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
